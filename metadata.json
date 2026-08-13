@@ -1,0 +1,6 @@
+{
+  "name": "Scheduling Tool - Bulk Scheduler (CSV)",
+  "description": "Upload scheduling CSVs, map internal item IDs, quantities, subsidiary IDs, and location codes, edit output columns in bulk or inline, and export formatted CSV files.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,25 @@
+--- src/App.tsx
++++ src/App.tsx
+@@ -276,7 +276,8 @@
+   const handleApplyBulkUpdate = (
+     updates: Partial<Pick<OutputSchedulerRow, 'subsidiary_id' | 'location' | 'start_date' | 'end_date' | 'quantity' | 'memo'>>,
+     applyToSelectedOnly: boolean,
+-    quantityMultiplier?: number
++    quantityMultiplier?: number,
++    quantityDivisor?: number
+   ) => {
+     setOutputRows((prev) =>
+       prev.map((row) => {
+@@ -293,6 +294,11 @@
+           const numQty = Number(row.quantity);
+           if (!isNaN(numQty)) {
+             newQty = Math.round(numQty * quantityMultiplier);
+           }
++        } else if (quantityDivisor !== undefined && !isNaN(quantityDivisor) && quantityDivisor !== 0) {
++          const numQty = Number(row.quantity);
++          if (!isNaN(numQty)) {
++            newQty = Math.round(numQty / quantityDivisor);
++          }
+         }
+ 
+         return {
